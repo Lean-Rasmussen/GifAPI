@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import GifList from './components/gifdisplay'
 
 class App extends Component {
   constructor(){
@@ -30,6 +31,7 @@ class App extends Component {
           <input type='text'></input> <button>Search</button>
         </div>
         <div className='gifContainer'>
+          <GifList data={this.state.gifs}/>
         </div>
 
       </div>

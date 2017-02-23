@@ -1,10 +1,27 @@
 .App {
   text-align: center;
-  background-color: #30C1D9;
 }
 
 
 .headerContainer {
   background-color: #30C1D9;
   padding: 10px;
+}
+
+.gifContainer{
+  background-color: #abbbbb;
+  display: flex;
+  max-width: 80%;
+  margin: auto;
+  text-align: center;
+}
+.gifs{
+  width:800px;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.gif{
+list-style: none;
+margin:5px;
 }
