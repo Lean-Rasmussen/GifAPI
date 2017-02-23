@@ -1,8 +1,10 @@
 .App {
   text-align: center;
+  background-color: #30C1D9;
 }
 
 
-.App-intro {
-  font-size: large;
+.headerContainer {
+  background-color: #30C1D9;
+  padding: 10px;
 }
