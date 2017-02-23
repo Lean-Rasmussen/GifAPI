@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 
 class App extends Component {
   constructor(){
@@ -10,10 +11,10 @@ class App extends Component {
 
   }
   componentDidMount(){
-    fetch('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
-    .then(responese => responese.json())
+    axios.get('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
     .then(responseData => {
-      this.setState({gifs :responseData.data})
+      this.setState({
+        gifs :responseData.data.data})
     }).catch(error =>{
       console.log('error in Fetching or parsing data', error)
     } );
