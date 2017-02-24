@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import GifList from './components/gifdisplay'
+import SearchForm from './components/searchForm'
 
 class App extends Component {
   constructor(){
@@ -12,13 +13,17 @@ class App extends Component {
 
   }
   componentDidMount(){
-    axios.get('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
-    .then(responseData => {
-      this.setState({
-        gifs :responseData.data.data})
-    }).catch(error =>{
-      console.log('error in Fetching or parsing data', error)
-    } );
+    
+
+  }
+  performSearch = (query)=>{
+    axios.get(`http://api.giphy.com/v1/gifs/search?q=${query}&api_key=dc6zaTOxFJmzC`)
+        .then(responseData => {
+          this.setState({
+            gifs :responseData.data.data})
+        }).catch(error =>{
+          console.log('error in Fetching or parsing data', error)
+        } );
 
   }
 
@@ -28,7 +33,7 @@ class App extends Component {
       <div className="App">
         <div className='headerContainer'>
           <h1>What are you giffing for start giffing already!!</h1>
-          <input type='text'></input> <button>Search</button>
+          <SearchForm onSearch={this.performSearch}/>
         </div>
         <div className='gifContainer'>
           <GifList data={this.state.gifs}/>
